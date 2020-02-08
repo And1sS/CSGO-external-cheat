@@ -1,0 +1,8 @@
+﻿  main.cpp
+E:\C++ projects\CSGO_External\sources\main.cpp(9,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating code
+  7 of 99 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  hack.vcxproj -> E:\C++ projects\CSGO_External\Release\CSGO_external.exe
