@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 #include <cstdint>
+#include <iostream>
 
 #include "MemManager.h"
 #include "Vec3.h"
@@ -12,6 +13,7 @@ class BaseEntity
 {
 private:
     MemManager* memManager;
+    unsigned char _junk[13];
     DWORD base;
 
 public:
@@ -26,5 +28,7 @@ public:
     DWORD getBase();
 
     Vec3 getOrigin();
+
+    void printInfo();
 };
 

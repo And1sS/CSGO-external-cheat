@@ -19,8 +19,9 @@ uintptr_t getModuleBaseAddress(DWORD procId, const wchar_t* modName);
 int main()
 {
     HANDLE processHandle = 0;
+    unsigned char _junk[33];
     DWORD pid = 0;
-
+    unsigned char _junk2[71];
     HWND hWND = FindWindow(NULL, WINDOW_NAME);
 
     while (hWND == NULL)
@@ -70,7 +71,11 @@ int main()
         hacks.printEntitiesInfo();
 #endif
 
+        hacks.triggerBot();
         hacks.glowESP();
+        hacks.antiFlash();
+        hacks.bunnyHop();
+
     }
     std::cin.get();
 }
@@ -78,10 +83,12 @@ int main()
 uintptr_t getModuleBaseAddress(DWORD procId, const wchar_t* modName)
 {
     uintptr_t modBaseAddr = 0;
+    unsigned char _junk[11];
     HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
     if (hSnap != INVALID_HANDLE_VALUE)
     {
         MODULEENTRY32 modEntry;
+        unsigned char _junk[6];
         modEntry.dwSize = sizeof(modEntry);
         if (Module32First(hSnap, &modEntry))
         {

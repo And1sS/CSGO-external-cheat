@@ -24,8 +24,15 @@ private:
 public:
 	Hacks(MemManager* memManager);
 
+	BaseEntity getLocalPlayer();
+
 	void loadEntityList();
+
 	void printEntitiesInfo();
+
 	void glowESP();
+	void antiFlash();
+	void bunnyHop();
+	void triggerBot();
 };
 
