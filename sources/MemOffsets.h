@@ -24,24 +24,25 @@ namespace offsets
 {
 	namespace netvars 
 	{
-		constexpr ::std::ptrdiff_t m_iHealth = 0x100;
-		constexpr ::std::ptrdiff_t m_vecOrigin = 0x138;
-		constexpr ::std::ptrdiff_t m_flFlashDuration = 0xA410;
-		constexpr ::std::ptrdiff_t m_iTeamNum = 0xF4;
-		constexpr ::std::ptrdiff_t m_iGlowIndex = 0xA428;
+		constexpr ::std::ptrdiff_t m_iHealth = 0x100;				// Health offset from entity address
+		constexpr ::std::ptrdiff_t m_vecOrigin = 0x138;				// Origin offset from entity address
+        constexpr ::std::ptrdiff_t m_flFlashDuration = 0xA410;		// Flash duration offset from local player address
+		constexpr ::std::ptrdiff_t m_iTeamNum = 0xF4;				// Team number offset from entity address 2 - T, 3 - CT
+		constexpr ::std::ptrdiff_t m_iGlowIndex = 0xA428;			// Glow index offset from entity address
 		constexpr ::std::ptrdiff_t m_iCrosshairId = 0xB3D4;
+        constexpr ::std::ptrdiff_t m_bSpottedByMask = 0x980;
 	} 
 
 	namespace signatures
 	{
-		constexpr ::std::ptrdiff_t dwLocalPlayer = 0xD29B1C;
+        constexpr ::std::ptrdiff_t dwLocalPlayer = 0xD28B74;
 		constexpr ::std::ptrdiff_t dwClientState_GetLocalPlayer = 0x180;
-		constexpr ::std::ptrdiff_t dwGlowObjectManager = 0x527EF18;
+        constexpr ::std::ptrdiff_t dwGlowObjectManager = 0x527DFA0;
 		constexpr ::std::ptrdiff_t dwClientState_State = 0x108;
-		constexpr ::std::ptrdiff_t dwEntityList = 0x4D3D67C;
-		constexpr ::std::ptrdiff_t dwClientState = 0x588D9C;
-		constexpr ::std::ptrdiff_t dwForceAttack = 0x316ED6C;
-		constexpr ::std::ptrdiff_t dwForceJump = 0x51E0EA0;
+        constexpr ::std::ptrdiff_t dwEntityList = 0x4D3C7BC;
+        constexpr ::std::ptrdiff_t dwClientState = 0x588D9C;
+        constexpr ::std::ptrdiff_t dwForceAttack = 0x316DD80;
+        constexpr ::std::ptrdiff_t dwForceJump = 0x51E0004;
 		constexpr ::std::ptrdiff_t m_fFlags = 0x104;
 	}
 }

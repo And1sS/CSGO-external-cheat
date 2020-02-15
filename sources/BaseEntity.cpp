@@ -1,10 +1,7 @@
 #include "BaseEntity.h"
 
-BaseEntity::BaseEntity(MemManager* memManager, DWORD base)
-{
-	this->memManager = memManager;
-	this->base = base;
-};
+BaseEntity::BaseEntity(MemManager* memManager, DWORD base, uint32_t id)
+    : memManager(memManager), base(base), id(id) {};
 
 uint32_t BaseEntity::getHealth()
 {
@@ -25,23 +22,13 @@ Vec3 BaseEntity::getOrigin()
 {
 	return memManager->readMem<Vec3>(LPCVOID(base + offsets::netvars::m_vecOrigin));
 }
-void BaseEntity::printInfo()
+
+uint32_t BaseEntity::getSpottedByMask()
 {
-	std::cout << "health address: " << std::hex << getBase() + offsets::netvars::m_iHealth
-		<< " health: " << std::dec << getHealth()
-		<< " x: " << getOrigin().getX()
-		<< " y: " << getOrigin().getY()
-		<< " z: " << getOrigin().getZ()
-		<< " team: : " << (getTeam() == 2 ? "T" : "CT")
-		<< std::endl << std::endl << std::endl;
+   return memManager->readMem<uint32_t>(LPCVOID(base + offsets::netvars::m_bSpottedByMask));
 }
 
 bool BaseEntity::isValid()
 {
 	return base != NULL;
-}
-
-DWORD BaseEntity::getBase()
-{
-	return base;
 }

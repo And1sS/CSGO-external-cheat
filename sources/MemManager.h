@@ -5,16 +5,16 @@
 class MemManager
 {
 private:
+	DWORD engineDllAddress;
+	unsigned char _junk[13];
 	HANDLE processHandle;
 
 	DWORD clientPanoramaDllAddress;
 
 public:
-	MemManager(HANDLE processHandle, DWORD clientPanoramaDllAddress)
-	{
-		this->processHandle = processHandle;
-		this->clientPanoramaDllAddress = clientPanoramaDllAddress;
-	}
+	MemManager(HANDLE processHandle, DWORD clientPanoramaDllAddress, DWORD engineDllAddress) 
+        : engineDllAddress(engineDllAddress), processHandle(processHandle),
+          clientPanoramaDllAddress(clientPanoramaDllAddress) {}
 
 	template <class T>
 	T readMem(LPCVOID baseAddr)
